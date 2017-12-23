@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A hello world application.
+Resources:
+  HelloWorldFunction:
+    Properties:
+      CodeUri: s3://serverless.repo/72fdc1b3b34b70bb3cfa7a113202a431
+      Events:
+        Api:
+          Properties:
+            Method: get
+            Path: /hello
+          Type: Api
+      Handler: index.handler
+      Runtime: nodejs6.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
